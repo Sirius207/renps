@@ -1,0 +1,49 @@
+<% layout( 'layout' ) -%>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"><%= title %></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/users/add_property">Add a book</a></li>
+      <li><a href="/users/add_resource">Add a resource</a></li>
+      <li><a href="collapsible.html">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class ="row">
+<div class="card" style="padding:30px;margin:30px;">
+<form name = "add", action="/apis/add_book" method="post" accept-charset="utf-8">
+  <div class="book_name">
+    <label >book_name</label>
+    <input class="input" type="text" name="name" />
+  </div>
+  <div class = "row">
+    <div class="author input-field col s6">
+      <label >author</label>
+      <input class="input" type="text" name="author" />
+    </div>
+    <div class="owner input-field col s6">
+      <label >owner</label>
+      <input class="input" type="text" name="owner" />
+    </div>
+  </div>
+  <div class="image">
+    <label >image</label>
+    <input class="input" type="text" name="image" />
+  </div>
+  <div class="url">
+    <label >url</label>
+    <input class="input" type="text" name="url" />
+  </div>
+  <div class="intro input-field col s12">
+    <label >intro</label>
+    <textarea class="input materialize-textarea" type="text" name="intro"></textarea>
+  </div>
+  <div class="remark">
+    <label >remark</label>
+    <input class="input" type="text" name="remark" />
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+</form>
+</div>
+</div>

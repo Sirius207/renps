@@ -1,0 +1,65 @@
+<% layout( 'layout' ) %>
+
+<script>
+$( document ).ready(function() {
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+});
+</script>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"><%= title %></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/users/add_property">Add a book</a></li>
+      <li><a href="/users/add_resource">Add a resource</a></li>
+      <li><a href="/">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class = "row" style="text-align:center;">
+
+<div class = "card"  style="text-align:center;">
+  <img src="<%= resources.image %>" alt="">
+  <h3><%= resources.product_name %></h3>
+  <h5>簡介: </h5>
+  <p><%= resources.intro %></p>
+  <a href="<%= resources.url %>">頁面</a>
+  <h5>來源: <%= resources.owner %></h5>
+  <br>
+  <h3>預約時程</h3>
+  <% resources.record.forEach( function ( resources ){ %>
+  <% if(resources.have_rent===false){ %>
+  <div class="item">
+    <h5><%= resources.user_id %></h5>
+    <h7><%= resources.start_day %></h7>
+    <h7><%= resources.end_day %></h7>
+    <a href="/apis/delete_resources/<%= resources._id %>"><i class="fa fa-times"></i></a>
+  </div>
+  <% } %>
+  <% }); %>
+  <br>
+  <h5>我要預約</h5>
+  <form name = "rent", action="/apis/rent_resources/<%= resources._id %>" method="post" accept-charset="utf-8">
+    <div class = "row">
+      <div class="user_id input-field col s12">
+        <label for="">name</label>
+        <input class="input" type="text" name="user_id" />
+      </div>
+    </div>
+    <div class = "row">
+      <div class="start_day input-field col s6">
+        <label for="">from</label>
+        <input class="input datepicker" type="date" name="start_day" />
+      </div>
+      <div class="end_day input-field col s6">
+        <label for="">to</label>
+        <input class="input datepicker" type="date" name="end_day" />
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+  </form>
+</div>
+</div>

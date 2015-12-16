@@ -1,0 +1,57 @@
+<% layout( 'layout' ) %>
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><%= title %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/users/add_property">Add a book</a></li>
+        <li><a href="/users/add_resource">Add a resource</a></li>
+        <li><a href="collapsible.html">Login</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+<div id="list">
+  <br>
+  <div class="row">
+    <% books.forEach( function ( books ){ %>
+    <div class="col s2">
+      <div class="card">
+        <a href="/users/books/<%= books._id %>">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= books.image %>">
+          </div>
+          <div class="card-content">
+            <!-- <span  class="card-title activator grey-text text-darken-4"><%= books.who_keep %> -->
+           <!--  <i class="fa fa-ellipsis-v"></i></span> -->
+            <p><%= books.who_keep %></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<div id="list">
+  <br>
+  <div class="row">
+    <% resources.forEach( function ( resources ){ %>
+    <div class="col s2">
+      <div class="card">
+        <a href="/users/resources/<%= resources._id %>">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= resources.image %>">
+          </div>
+          <div class="card-content">
+            <!-- <span  class="card-title activator grey-text text-darken-4"><%= books.who_keep %> -->
+           <!--  <i class="fa fa-ellipsis-v"></i></span> -->
+            <p><%= resources.who_keep %></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
