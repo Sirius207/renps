@@ -19,6 +19,7 @@
     "errorhandler": "1.2.0",
     "method-override": "2.2.0",
     "serve-static": "1.6.3",
-    "moment": "^2.10.6"
+    "moment": "^2.10.6",
+    "bson": "2.0.0"
   }
 }
